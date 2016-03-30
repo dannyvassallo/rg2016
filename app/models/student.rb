@@ -1,5 +1,3 @@
-require_relative "./concerns/csvable"
-
 class Student < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
