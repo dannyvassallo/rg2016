@@ -3,6 +3,12 @@ class RutgersClasses::StudentsController < ApplicationController
     @students = Student.all
   end
 
+  def import
+    @class = RutgersClass.friendly.find(params[:rutgers_class_id])
+    @class.students.import(params[:file])
+    redirect_to @class
+  end
+
   def show
     @class = RutgersClass.friendly.find(params[:rutgers_class_id])
     @student = @class.students.friendly.find(params[:id])
