@@ -1,0 +1,3 @@
+<%= @student.name %> | <%= link_to "edit", edit_rutgers_class_student_path %> | <%= link_to 'Destroy',  rutgers_class_student_path,  method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<br>
+<%= link_to "Class", rutgers_class_path(@class) %>
