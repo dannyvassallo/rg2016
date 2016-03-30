@@ -1,1 +1,6 @@
 <%= @class.class_name %>
+<%= link_to "new student", new_rutgers_class_student_path(:rutgers_class_id => @class.friendly_id) %>
+<br>
+<% @class.students.each do |student| %>
+  <%= link_to student.name, rutgers_class_student_path(@class, student) %><br>
+<% end %>
