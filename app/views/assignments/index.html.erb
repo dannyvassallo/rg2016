@@ -1,0 +1,4 @@
+<% @assignments.each do |assignment| %>
+  <%= link_to assignment.name, assignment %> | <%= link_to "edit", edit_assignment_path(assignment) %> | <%= link_to 'Destroy',  assignment,  method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% end %>
+<%= link_to "New Assignment", new_assignment_path %>
