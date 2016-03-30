@@ -3,6 +3,12 @@ class Assignments::ObjectivesController < ApplicationController
     @objectives = Objective.all
   end
 
+  def import
+    @assignment = Assignment.friendly.find(params[:assignment_id])
+    @assignment.objectives.import(params[:file])
+    redirect_to @assignment
+  end
+
   def show
     @assignment = Assignment.friendly.find(params[:assignment_id])
     @objective = @assignment.objectives.friendly.find(params[:id])

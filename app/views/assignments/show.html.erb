@@ -4,3 +4,8 @@
 <% @assignment.objectives.each do |objective| %>
   <%= link_to objective.name, assignment_objective_path(@assignment, objective) %><br>
 <% end %>
+<br>
+<%= form_tag import_assignment_objectives_path(@assignment), multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import Csv" %>
+<% end %>

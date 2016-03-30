@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   end
 
   resources :assignments do
-    resources :objectives, controller: 'assignments/objectives'
+    resources :objectives, controller: 'assignments/objectives' do
+      collection {post :import}
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
