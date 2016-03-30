@@ -1,0 +1,4 @@
+<% @classes.each do |rutgers_class| %>
+  <%= link_to rutgers_class.class_name, rutgers_class %> | <%= link_to "edit", edit_rutgers_class_path(rutgers_class) %> | <%= link_to 'Destroy',  rutgers_class,  method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% end %>
+<%= link_to "New Class", new_rutgers_class_path %>
