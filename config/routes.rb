@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  match '/add_assignment', to: 'rutgers_classes/students#add_assignment', via: 'post'
+
   resources :rutgers_classes, :path => "classes" do
     resources :students, controller: 'rutgers_classes/students' do
       collection {post :import}

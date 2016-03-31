@@ -9,9 +9,21 @@ class RutgersClasses::StudentsController < ApplicationController
     redirect_to @class
   end
 
+  def add_assignment
+    @class = RutgersClass.friendly.find(params[:rutgers_class_id])
+    @student = @class.students.friendly.find(params[:student_id])
+    @assignment = Assignment.friendly.find(params[:assignment_id])
+    @student.assignments << @assignment
+    redirect_to rutgers_class_student_path(@class, @student)
+  end
+
   def show
     @class = RutgersClass.friendly.find(params[:rutgers_class_id])
     @student = @class.students.friendly.find(params[:id])
+    @assignments = []
+    Assignment.all.each do |assignment|
+      @assignments << [assignment.name, assignment.friendly_id]
+    end
   end
 
   def new
