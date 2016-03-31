@@ -1,15 +1,17 @@
+<h1>Student</h1>
 <%= @student.name %> | <%= link_to "edit", edit_rutgers_class_student_path %> | <%= link_to 'Destroy',  rutgers_class_student_path,  method: :delete, data: { confirm: 'Are you sure?' } %><br>
 <br>
-<%= link_to "Class", rutgers_class_path(@class) %>
-<br>
+<h2>Assignments</h2>
 <% @student.assignments.each do |assignment| %>
-  <%= assignment.name %><br>
+  <%= link_to assignment.name %><br>
 <% end %>
 <br>
+<h2>Add Assignments</h2>
 <%= form_tag({controller: "rutgers_classes/students", action: "add_assignment"}, method: "post") do %>
     <%= hidden_field_tag(:rutgers_class_id, @student.rutgers_class.friendly_id) %>
     <%= hidden_field_tag(:student_id, @student.friendly_id) %>
-    <%= label_tag(:assignment_id, "assignment") %>
     <%= select_tag(:assignment_id, options_for_select(@assignments)) %>
     <%= submit_tag("add") %>
 <% end %>
+<br>
+<%= link_to "Back To Class", rutgers_class_path(@class) %>
