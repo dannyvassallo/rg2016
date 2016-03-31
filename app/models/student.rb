@@ -3,6 +3,8 @@ class Student < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   belongs_to :rutgers_class
+  has_many :student_assignments
+  has_many :assignments, through: :student_assignments
 
   require 'csv'
 
