@@ -3,9 +3,12 @@
 <br>
 <h2>Assignments</h2>
 <% @student.assignments.each do |assignment| %>
-  <%= link_to assignment.name %><br>
+  <h4><%= assignment.name %></h4>
+  <% assignment.objectives.each do |objective| %>
+    <p><%= objective.name %></p>
+  <% end %>
+  <br>
 <% end %>
-<br>
 <h2>Add Assignments</h2>
 <%= form_tag({controller: "rutgers_classes/students", action: "add_assignment"}, method: "post") do %>
     <%= hidden_field_tag(:rutgers_class_id, @student.rutgers_class.friendly_id) %>
