@@ -1,5 +1,5 @@
-<h1>Student</h1>
-<%= @student.name %> | <%= link_to "edit", edit_rutgers_class_student_path %> | <%= link_to 'Destroy',  rutgers_class_student_path,  method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<h1><%= @student.name %></h1>
+<%= link_to "edit", edit_rutgers_class_student_path %> | <%= link_to 'Destroy',  rutgers_class_student_path,  method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to "Back To Class", rutgers_class_path(@class) %><br>
 <br>
 <h2>Assignments</h2>
 <% @student.assignments.each do |assignment| %>
@@ -17,4 +17,3 @@
     <%= submit_tag("add") %>
 <% end %>
 <br>
-<%= link_to "Back To Class", rutgers_class_path(@class) %>
